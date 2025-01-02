@@ -1,34 +1,33 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
 
   // string
-  const [name,setName] = useState<string>('helllo');
+  const [name,setName] = useState<string>('Hungdz');
 
-  // Number
-  const [age,setAge] = useState<number>(0)
-
-  //
-
-  const [person,setPerson] =  useState<
-    {
-      name: string;
-      age: number;
-    }
-  >({
-      name: 'hung',
-      age: 25
-      
-  });
+ 
 
   return (
     <View style={styles.container}>
       <View>
-        <Text style={styles.text}>{person.name}</Text>
-      </View>
 
-      <Text>{person.age}</Text>
+        <TextInput 
+        value={name}
+        onChangeText={(value) => setName(value)}
+        multiline
+        autoCorrect
+        autoCapitalize='none'
+        style={{
+          borderColor:'violet',
+          borderWidth: 1,
+          padding:10
+          }}/>
+
+          <Text>{name}</Text>
+
+          <Button title='Add new'/>
+      </View>
 
     </View>
   );
